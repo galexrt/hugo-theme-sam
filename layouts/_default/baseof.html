@@ -16,11 +16,25 @@
     </title>
 </head>
 
-<body style="background-image: url('/background.png')">
+<body>
+    {{ with .Site.Params.videoBackground }}
+        <video class="video" autoplay muted preload loop playsinline>
+            {{ range .sources }}
+                <source
+                    src="{{ .source }}"
+                    type="{{ .type }}"
+                    poster="{{ .poster }}" />
+            {{ end }}
+        </video>
+        {{ with .overlay }}
+            <div id="overlay" style="background: {{ . | safeCSS }};"></div>
+        {{ end }}
+    {{ end }}
+
     {{ block "main" . }}
     {{ block "section_title" . }}
     <header class="wrap flex-container">
-        <h1>{{ .Title | markdownify }}</h1>
+        <h1 class="big-link glitch" data-text="{{ .Title }}">{{ .Title | markdownify }}</h1>
     </header>
     {{ end }}
     <main class="wrap">

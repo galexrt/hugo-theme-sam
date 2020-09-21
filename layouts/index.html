@@ -4,6 +4,8 @@
 <head>
     {{ partial "head.html" . }}
     <title>{{ .Title | markdownify }}</title>
+    {{ $glitchStyle := resources.Get "css/glitch.css" }}
+    <link rel="stylesheet" href="{{ $glitchStyle.RelPermalink }}" integrity="{{ $glitchStyle.Data.Integrity }}" crossorigin="anonymous" media="screen">
 </head>
 
 <body>
@@ -25,14 +27,14 @@
 
         {{ if .Site.Params.mainMenu }}
         {{ range .Site.Params.mainMenu }}
-            <a href="{{.link}}" class="big-link">
+            <a href="{{.link}}" class="big-link glitch" data-text="{{.text}}">
                 {{.text}}
             </a>
         {{ end }}
 
         {{ else }}
         {{ range .Site.Sections }}
-            <a href="{{.RelPermalink}}" class="big-link">
+            <a href="{{.RelPermalink}}" class="big-link glitch" data-text="{{.text}}">
                 {{.Title | markdownify}}
             </a>
         {{ end }}

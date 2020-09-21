@@ -5,7 +5,7 @@
     font-family: $font
     font-size: 3rem
     font-weight: 300
-    margin-bottom: 2rem
+    margin: 0 auto 2rem auto
     line-height: 1.5em
 
 #title
@@ -139,6 +139,17 @@ article
 
 .video
     position: fixed
+    -webkit-transform: translateX(-50%) translateY(-50%)
+    -moz-transform: translateX(-50%) translateY(-50%)
+    -ms-transform: translateX(-50%) translateY(-50%)
+    -o-transform: translateX(-50%) translateY(-50%)
+    transform: translateX(-50%) translateY(-50%)
+    top: 50%
+    left: 50%
+    min-width: 100%
+    min-height: 100%
+    width: auto
+    height: auto
     z-index: -1
 
 #overlay
@@ -147,8 +158,9 @@ article
     width: 100%
     top: 0
     left: 0
-    background: rgba(0,0,0, 0.4)
     z-index: -1
+    background-image: radial-gradient(black 50%, transparent 50%);
+    background-size: 4px 4px;
 
 @media (min-aspect-ratio: 16/9)
     .video

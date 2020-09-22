@@ -39,6 +39,9 @@
         {{ end }}
 
     </nav>
+    {{ block "footer" . }}
+    <footer class="flex-container footer">{{ partial "footer.html" . }}</footer>
+    {{ end }}
 </body>
 
 </html>

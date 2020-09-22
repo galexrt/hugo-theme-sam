@@ -11,6 +11,10 @@
 <link rel="stylesheet" href="{{ $bundle.RelPermalink }}" integrity="{{ $bundle.Data.Integrity }}" crossorigin="anonymous" media="screen">
 {{ end }}
 
+{{ $fontStyle := resources.Get "css/google-font-didact-gothic.css" }}
+<!-- Google fonts offline -->
+<link rel="stylesheet" href="{{ $fontStyle.RelPermalink }}" integrity="{{ $fontStyle.Data.Integrity }}" crossorigin="anonymous" media="screen">
+
 <!-- Custom css -->
 {{ range .Site.Params.customCSS -}}
 {{ $style := resources.Get . }}
